@@ -20,6 +20,8 @@ module Sinatra
       app.set :swagger_current_endpoint_info, {}
       app.set :swagger_current_endpoint_parameters, {}
       app.set :swagger_current_endpoint_responses, {}
+      app.set :swagger_options, {}
+
       swagger_types = Sinatra::SwaggerExposer::Configuration::SwaggerTypes.new
       app.set :swagger_types, swagger_types
       app.set :swagger_preprocessor_creator, Sinatra::SwaggerExposer::SwaggerPreprocessorCreator.new(swagger_types)
@@ -33,7 +35,8 @@ module Sinatra
         swagger_content = Sinatra::SwaggerExposer::SwaggerContentCreator.new(
             settings.respond_to?(:swagger_info) ? settings.swagger_info : nil,
             settings.swagger_types,
-            settings.swagger_endpoints
+            settings.swagger_endpoints,
+            settings.swagger_options
         ).to_swagger
         content_type :json
         swagger_content.to_json

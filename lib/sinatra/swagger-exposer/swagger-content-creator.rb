@@ -9,10 +9,11 @@ module Sinatra
 
       include SwaggerUtilities
 
-      def initialize(swagger_info, swagger_types, swagger_endpoints)
+      def initialize(swagger_info, swagger_types, swagger_endpoints, swagger_options)
         @swagger_info = swagger_info
         @swagger_types = swagger_types
         @swagger_endpoints = swagger_endpoints
+        @swagger_options = swagger_options
       end
 
       def to_swagger
@@ -49,6 +50,9 @@ module Sinatra
           result[:paths] = result_endpoints
         end
 
+        if @swagger_options
+          result.merge!(@swagger_options)
+        end   
         result
       end
 

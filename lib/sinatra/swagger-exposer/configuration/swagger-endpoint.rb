@@ -34,6 +34,7 @@ module Sinatra
           if produces
             @attributes[:produces] = produces
           end
+          @attributes[:title] = "test"
         end
 
         def to_swagger

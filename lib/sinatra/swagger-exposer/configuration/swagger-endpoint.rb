@@ -45,6 +45,7 @@ module Sinatra
           if produces
             @attributes[:produces] = produces
           end
+          @attributes[:title] = "test"
         end
 
         # Return a swagger version

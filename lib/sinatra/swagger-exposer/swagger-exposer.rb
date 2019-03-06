@@ -64,6 +64,10 @@ module Sinatra
       set_if_type_and_not_exist(description, :description, String)
     end
 
+    def endpoint_title(title)
+      set_if_type_and_not_exist(title, :title, String)
+    end
+    
     # Provide tags for the endpoint
     def endpoint_tags(*tags)
       set_if_not_exist(tags, :tags)
@@ -162,7 +166,8 @@ module Sinatra
           current_endpoint_info[:description],
           current_endpoint_info[:tags],
           current_endpoint_info[:path],
-          current_endpoint_info[:produces])
+          current_endpoint_info[:produces],
+          current_endpoint_info[:title])
       settings.swagger_endpoints << endpoint
       current_endpoint_info.clear
       current_endpoint_parameters.clear

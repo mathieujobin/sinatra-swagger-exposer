@@ -14,7 +14,7 @@ module Sinatra
 
         attr_reader :path, :type, :parameters
 
-        def initialize(type, sinatra_path, parameters, responses, summary, description, tags, explicit_path, produces)
+        def initialize(type, sinatra_path, parameters, responses, summary, description, tags, explicit_path, produces, title)
           @type = type
           @path = swagger_path(sinatra_path, explicit_path)
 
@@ -34,7 +34,9 @@ module Sinatra
           if produces
             @attributes[:produces] = produces
           end
-          @attributes[:title] = "test"
+          if title
+            @attributes[:title] = title
+          end
         end
 
         def to_swagger

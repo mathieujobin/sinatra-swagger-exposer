@@ -35,7 +35,7 @@ module Sinatra
             @attributes[:produces] = produces
           end
           if title
-            @attributes[:title] = title
+            @attributes[:title] = title || " "
           end
         end
 

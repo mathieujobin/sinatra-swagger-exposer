@@ -41,6 +41,7 @@ module Sinatra
     def self.declare_swagger_endpoint(app)
       app.endpoint_summary 'The swagger endpoint'
       app.endpoint_tags 'swagger'
+      app.endpoint_title 'swagger'
       app.endpoint_response 200
       app.get('/swagger_doc.json') do
         swagger_content = Sinatra::SwaggerExposer::SwaggerContentCreator.new(
@@ -55,6 +56,7 @@ module Sinatra
 
       app.endpoint_summary 'Option method for the swagger endpoint, useful for some CORS stuff'
       app.endpoint_tags 'swagger'
+      app.endpoint_title 'swagger'
       app.endpoint_response 200
       app.endpoint_produces 'text/plain;charset=utf-8'
       app.options('/swagger_doc.json') do

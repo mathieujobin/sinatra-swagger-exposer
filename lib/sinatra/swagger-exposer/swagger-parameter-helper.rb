@@ -29,6 +29,7 @@ module Sinatra
         TYPE_LONG,
         TYPE_FLOAT,
         TYPE_DOUBLE,
+        TYPE_NUMBER,
         TYPE_STRING,
         TYPE_BYTE,
         TYPE_BOOLEAN,

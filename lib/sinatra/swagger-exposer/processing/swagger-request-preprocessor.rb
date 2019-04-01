@@ -33,6 +33,7 @@ module Sinatra
             body = app.request.body.read
             unless body.empty?
               begin
+                p body
                 parsed_body = ::JSON.parse(body)
               rescue ::JSON::ParserError => e
                 return [400, {:code => 400, :message => e.message}.to_json]

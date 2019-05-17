@@ -3,3 +3,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'coveralls', require: false
+
+gem 'sinatra', '~> 1.4'
+

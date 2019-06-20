@@ -5,8 +5,6 @@ module Sinatra
     # Create the swagger content
     class SwaggerContentCreator
 
-      include SwaggerUtilities
-
       def initialize(swagger_info, swagger_types, swagger_endpoints, swagger_options)
         @swagger_info = swagger_info
         @swagger_types = swagger_types

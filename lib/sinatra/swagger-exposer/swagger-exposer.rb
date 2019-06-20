@@ -31,6 +31,7 @@ module Sinatra
     def self.declare_swagger_endpoints(app)
       app.endpoint_summary 'The swagger endpoint'
       app.endpoint_tags 'swagger'
+      app.endpoint_response 200, 'Status', 'Standard response'
       app.get '/swagger_doc.json' do
         swagger_content = Sinatra::SwaggerExposer::SwaggerContentCreator.new(
             settings.respond_to?(:swagger_info) ? settings.swagger_info : nil,
@@ -44,6 +45,7 @@ module Sinatra
 
       app.endpoint_summary 'Option method for the swagger endpoint, useful for some CORS stuff'
       app.endpoint_tags 'swagger'
+      app.endpoint_response 200, 'Status', 'Standard response'
       app.options '/swagger_doc.json' do
         200
       end
